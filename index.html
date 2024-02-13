@@ -1,53 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vídeo do YouTube sem Marca d'Água</title>
+    <title>Vídeo do YouTube em Tela Cheia</title>
     <style>
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
+            overflow: hidden; /* Para evitar a barra de rolagem */
         }
 
         #video-container {
-            position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* Proporção 16:9 para vídeos do YouTube */
-            height: 0;
-            overflow: hidden;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         #video {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-        }
-
-        /* Estilos para tornar o vídeo responsivo */
-        @media (max-width: 768px) {
-            #video-container {
-                padding-bottom: 75%; /* Proporção 4:3 para telas menores */
-            }
         }
     </style>
 </head>
 <body>
     <div id="video-container">
-        <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/PoRfKTA9-zA?controls=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+        <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/Y9N80kiDtIk?autoplay=1" frameborder="0" allowfullscreen></iframe>
     </div>
-
-    <script>
-        // Reproduzir o vídeo automaticamente após 1 segundo
-        window.onload = function() {
-            setTimeout(function() {
-                var video = document.getElementById('video');
-                video.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-            }, 1000); // 1000 milissegundos = 1 segundo
-        };
-    </script>
 </body>
 </html>
